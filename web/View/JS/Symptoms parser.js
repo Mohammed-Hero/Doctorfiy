@@ -9,7 +9,7 @@ $(document).ready(function () {
         $.get('DiseaseIdentifier', {sym_list: val}, function (responseText) {
 
             $.get('ViewSymptoms', function (responseText) {
-
+            $('#selectlist p').remove();
                 var txtArray = responseText.split("/");
                 for (i = 0; i < txtArray.length - 1; i++) {
                     $('#selectlist').append("<p class='symptoms_select'>" + txtArray[i] + "</p>");
