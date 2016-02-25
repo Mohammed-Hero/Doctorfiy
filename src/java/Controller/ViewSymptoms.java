@@ -5,17 +5,16 @@
  */
 package Controller;
 
+import Model.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Model.DBconnection;
-import Model.GuestDiagnose;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -24,7 +23,6 @@ import java.util.logging.Logger;
 public class ViewSymptoms extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -36,44 +34,34 @@ public class ViewSymptoms extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        // passed body part
-        String bodypart = request.getParameter("bodypart");
-        // to be passed to view
-        String Result = "";
-        
-        GuestDiagnose newGuest = new GuestDiagnose();
-        newGuest.SelectedArea = bodypart;
-        request.getSession(true).setAttribute("Guest", newGuest);
+
+        GuestDiagnose Guest = (GuestDiagnose) request.getSession().getAttribute("Guest");
+
+        String sym_list = "";
+
+        for (Integer sym : Guest.CurrentSymptomsID) {
+            sym_list += sym + ",";
+        }
+        sym_list = sym_list.substring(0, sym_list.length() - 1);
 
         DBconnection DB = new DBconnection();
+        DB.Query = "SELECT symptom.nameSymptom\n"
+                + "FROM symptom\n"
+                + "WHERE symptom.idSymptom IN (" + sym_list + ");";
         DB.Make_Connection(true);
-        DB.Query = "SELECT  COUNT(disease_has_symptoms.Symptom_idSymptom) AS SymOccurance ,\n"
-                + "              symptom.nameSymptom AS SymptomName, symptom.idSymptom \n"
-                + "              \n"
-                + "FROM symptom \n"
-                + "JOIN disease_has_symptoms \n"
-                + "ON   symptom.idSymptom = disease_has_symptoms.Symptom_idSymptom\n"
-                + "WHERE   symptom.areaSymptom = '"+bodypart+"'\n"
-                + "GROUP BY(symptom.nameSymptom)\n"
-                + "ORDER BY SymOccurance DESC;";
         DB.Execute_Query(1);
-        
+        sym_list = "";
         try {
-            while(DB.Rs.next()){
-                Result+=DB.Rs.getString(2)+"/"+DB.Rs.getInt(3)+"/";
-               }
-            
+            while (DB.Rs.next()) {
+                sym_list += DB.Rs.getString(1) + "/";
+
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ViewSymptoms.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        response.getWriter().write(Result);
-        
         DB.Close_Connection_Of(3);
         DB.Close_Connection_Of(2);
         DB.Close_Connection_Of(1);
-
+        response.getWriter().write(sym_list);
     }
-
 }

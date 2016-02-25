@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <servlet>
-        <servlet-name>ViewSymptoms</servlet-name>
-        <servlet-class>Controller.ViewSymptoms</servlet-class>
+        <servlet-name>IntitalSymptoms</servlet-name>
+        <servlet-class>Controller.IntitalSymptoms</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DiseaseIdentifier</servlet-name>
@@ -12,9 +12,13 @@
         <servlet-name>SymptomsRecommender</servlet-name>
         <servlet-class>Controller.SymptomsRecommender</servlet-class>
     </servlet>
-    <servlet-mapping>
+    <servlet>
         <servlet-name>ViewSymptoms</servlet-name>
-        <url-pattern>/ViewSymptoms</url-pattern>
+        <servlet-class>Controller.ViewSymptoms</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IntitalSymptoms</servlet-name>
+        <url-pattern>/IntitalSymptoms</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DiseaseIdentifier</servlet-name>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>SymptomsRecommender</servlet-name>
         <url-pattern>/SymptomsRecommender</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewSymptoms</servlet-name>
+        <url-pattern>/ViewSymptoms</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

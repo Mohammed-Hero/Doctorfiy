@@ -29,7 +29,14 @@ $(document).ready(function () {
 
         });
 
+        $.get('ViewSymptoms', function (responseText) {
 
+            var txtArray = responseText.split("/");
+            for(i =0 ; i < txtArray.length-1 ; i++){
+                $('#selectlist').append("<p class='symptoms_select'>"+txtArray[i]+"</p>");
+               
+            }
+        });
 
     });
 
