@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="Libs/angular.js"></script>
+        <script src="Libs/jquery-1.12.1.js"></script>
+        <script src="View/JS/Body interactions.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="Style/Diagnose-homepage.css">
+
+        <title>Welcome !</title>
+    </head>
+    <body id="body">
+        <nav class="navbar">
+            <img alt="" src="IMG/Doctorfiy.png" class="logo" style="">
+            <a class="navbuttona" href="#">  Home</a>
+            <a class="navbuttona" href="#" style="float: right;"> Signup</a>
+            <a class="navbuttona" href="#" style="float: right;"> Login </a>
+        </nav>
+
+        <img  src="IMG/-.png" alt="" usemap="#Map"  class="bodyimg" id="humanbody" style=""/>
+        <map name="Map" id="Map">
+            <area id='ShoulderR' alt=""  title="Shoulder" href="#Shoulder" shape="poly" coords="61,119,40,123,30,134,26,149,28,168,53,143" />
+            <area id='ShoulderL' alt="" title="Shoulder" href="#Shoulder" shape="poly" coords="130,117,133,135,144,147,157,158,162,174,165,152,160,132,151,120" />
+            <area id='ArmR' alt="" title="Middle Arm" href="#Arm" shape="poly" coords="28,171,26,204,32,214,42,178,43,158" />
+            <area id='ArmL' alt="" title="Middle Arm" href="#Arm" shape="poly" coords="148,156,148,187,154,208,158,214,163,182,154,157" />
+            <area id='ElbowR' alt="" title="Elbow" href="#Elbow" shape="poly" coords="24,202,20,211,32,221,36,214" />
+            <area id='ElbowL' alt="" title="Elbow" href="#Elbow" shape="poly" coords="163,199,168,207,162,215,154,221" />
+            <area id='ForearmR' alt="" title="Forearm" href="#Forearm" shape="poly" coords="20,214,14,256,12,275,20,281,34,225" />
+            <area id='ForearmL' alt="" title="Forearm" href="#Forearm" shape="poly" coords="154,226,164,265,168,283,178,274,171,214" />
+            <area id='WristR' alt="" title="Wrist" href="#Wrist" shape="poly" coords="10,277,8,285,22,286" />
+            <area id='WristL' alt="" title="Wrist" href="#Wrist" shape="poly" coords="169,286,180,286,180,276" />
+            <area id='PalmR' alt="" title="Palm" href="#Palm" shape="poly" coords="28,295,8,311,9,289" />
+            <area id='PalmL' alt="" title="Palm" href="#Palm" shape="poly" coords="162,296,180,313,181,289" />
+            <area id='FingersR' alt="" title="Fingers" href="#Fingers" shape="poly" coords="10,314,17,337,20,310" />
+            <area id='FingersL' alt="" title="Fingers" href="#Fingers" shape="poly" coords="169,307,168,335,178,318" />
+
+        </map>
+
+        <ul id='sym_list' class='sym_list'>
+            <li>
+                <button id='next' class='button'>NEXT</button>
+            </li> 
+        </ul>
+
+        <div class="selectedsymptoms" style="">
+            <p class="symptoms_select" style="background: black; color:white;">
+                Selected Symptoms
+            </p>
+        </div>
+    </body>
+</html>
