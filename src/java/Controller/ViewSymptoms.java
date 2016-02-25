@@ -62,6 +62,7 @@ public class ViewSymptoms extends HttpServlet {
         DB.Close_Connection_Of(3);
         DB.Close_Connection_Of(2);
         DB.Close_Connection_Of(1);
+        System.out.print("Symptoms :"+sym_list);
         response.getWriter().write(sym_list);
     }
 }
