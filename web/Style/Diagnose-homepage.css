@@ -60,7 +60,19 @@ body {}.navbar {
     left: 80%;
     width: 20%;
     height: 95%;
+  
     background-color: rgb(15, 122, 193);
+}
+.Disease{
+    position: fixed;
+    font-size: 26px;
+    font-family: Montserrat, sans-serif;
+    top: 90%;
+    left: 80%;
+    width: 20%;
+    height: 10%;
+    z-index: 1;
+    background: black; color:white;
 }
 .logo {
     float: left;

@@ -44,6 +44,7 @@ public class SymptomsRecommender extends HttpServlet {
 
         for (Integer sym : Guest.CurrentSymptomsID) {
             sym_list_String += sym + ",";
+            
 
         }
         sym_list_String = sym_list_String.substring(0, sym_list_String.length() - 1);
@@ -54,6 +55,10 @@ public class SymptomsRecommender extends HttpServlet {
         }
         disease_list_String = disease_list_String.substring(0, disease_list_String.length() - 1);
 
+        //
+        System.out.println("sym_list_String :"+sym_list_String);
+        System.out.println("disease_list_String :"+disease_list_String);
+        //
         DB.Make_Connection(true);
         DB.Query = "SELECT DISTINCT symptom.nameSymptom,symptom.idSymptom\n"
                 + "FROM disease\n"
@@ -61,7 +66,7 @@ public class SymptomsRecommender extends HttpServlet {
                 + "ON  disease_has_symptoms.Disease_idDisease = disease.idDisease\n"
                 + "JOIN symptom\n"
                 + "ON symptom.idSymptom = disease_has_symptoms.Symptom_idSymptom\n"
-                + "WHERE symptom.areaSymptom = 'Shoulder'\n"
+                + "WHERE symptom.areaSymptom = '"+Guest.SelectedArea+"'\n"
                 + "AND   disease_has_symptoms.Disease_idDisease IN("+disease_list_String+")\n"
                 + "AND   disease_has_symptoms.Symptom_idSymptom NOT IN("+sym_list_String+")";
         DB.Execute_Query(1);
@@ -71,6 +76,8 @@ public class SymptomsRecommender extends HttpServlet {
                 recommendedSymptoms+=DB.Rs.getString(1)+"/"+DB.Rs.getInt(2)+"/";
             }
         } catch (SQLException ex) {}
+        
+        System.out.println(recommendedSymptoms);
         
         response.getWriter().write(recommendedSymptoms);
         

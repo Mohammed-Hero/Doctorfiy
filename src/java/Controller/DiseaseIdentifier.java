@@ -29,6 +29,10 @@ public class DiseaseIdentifier extends HttpServlet {
 
         DBconnection DB = new DBconnection();
 
+        for(Integer sym : Guest.CurrentSymptomsID){
+            sym_list_String += sym + ",";
+        }
+       
         for (String sym : sym_list) {
             sym_list_String += sym + ",";
             Guest.CurrentSymptomsID.add(Integer.parseInt(sym));
@@ -45,9 +49,11 @@ public class DiseaseIdentifier extends HttpServlet {
                 + "WHERE symptom.areaSymptom = '"+Guest.SelectedArea+"'\n"
                 + "AND   disease_has_symptoms.Symptom_idSymptom IN("+sym_list_String+") \n"
                 + "GROUP BY(disease.nameDisease)\n"
-                + "HAVING COUNT(disease.nameDisease) = "+sym_list.length+";";
+                + "HAVING COUNT(disease.nameDisease) = "+Guest.CurrentSymptomsID.size()+";";
         DB.Execute_Query(1);
 
+        Guest.RecommendedDiseaseID.clear();
+        Guest.RecommendedDiseaseName.clear();
         try {
             while(DB.Rs.next()){
                Guest.RecommendedDiseaseName.add( DB.Rs.getString(1) );
@@ -59,8 +65,20 @@ public class DiseaseIdentifier extends HttpServlet {
         DB.Close_Connection_Of(2);
         DB.Close_Connection_Of(1);
         
-        System.out.println(Guest.RecommendedDiseaseName);
-        request.getSession(true).setAttribute("Guest", Guest);
+        if(Guest.RecommendedDiseaseName.size() == 1){
+            request.getSession(true).setAttribute("Guest", Guest);
+            response.getWriter().write(Guest.RecommendedDiseaseName.get(0));
+        }
+        else if(Guest.RecommendedDiseaseName.size() == 0){
+            request.getSession(true).setAttribute("Guest", Guest);
+            response.getWriter().write("0");
+        }
+        else{
+            request.getSession(true).setAttribute("Guest", Guest);
+            response.getWriter().write("1");
+        }
+       
+        
 
     }
 
