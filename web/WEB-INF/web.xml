@@ -4,9 +4,17 @@
         <servlet-name>ViewSymptoms</servlet-name>
         <servlet-class>Controller.ViewSymptoms</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DiseaseIdentifier</servlet-name>
+        <servlet-class>Controller.DiseaseIdentifier</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewSymptoms</servlet-name>
         <url-pattern>/ViewSymptoms</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DiseaseIdentifier</servlet-name>
+        <url-pattern>/DiseaseIdentifier</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -57,7 +57,7 @@ public class ViewSymptoms extends HttpServlet {
         try {
             while(DB.Rs.next()){
                 Result+=DB.Rs.getString(2)+"/"+DB.Rs.getInt(3)+"/";
-                System.out.println(DB.Rs.getString(2));}
+               }
             
         } catch (SQLException ex) {
             Logger.getLogger(ViewSymptoms.class.getName()).log(Level.SEVERE, null, ex);
