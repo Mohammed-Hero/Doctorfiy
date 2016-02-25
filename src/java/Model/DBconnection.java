@@ -76,7 +76,7 @@ String Server_Name = "root" , Password = "admin" , DB_Name = "doctorfiy" ;
      public void Execute_Query(int QueryType)
      {
         try 
-        { System.out.println("HI !!!!!!");
+        { 
           Stmt = Conn.createStatement();
           switch (QueryType) 
             {

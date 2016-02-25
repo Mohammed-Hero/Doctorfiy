@@ -16,6 +16,10 @@
         <servlet-name>ViewSymptoms</servlet-name>
         <servlet-class>Controller.ViewSymptoms</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DiseaseAttention</servlet-name>
+        <servlet-class>Controller.DiseaseAttention</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IntitalSymptoms</servlet-name>
         <url-pattern>/IntitalSymptoms</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>ViewSymptoms</servlet-name>
         <url-pattern>/ViewSymptoms</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DiseaseAttention</servlet-name>
+        <url-pattern>/DiseaseAttention</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -29,11 +29,17 @@ $(document).ready(function () {
             }
             else if (responseText === "0") {
                 $('#sym_list').hide();
-                $('#DiseaseName').text("Sorry we can't identify your disease");
+                $('#DiseaseName').attr('style',"color:red");
+                $('#DiseaseName').text("Unknown disease");
             }
             else {
                 $('#sym_list').hide();
                 $('#DiseaseName').html("You have <br> " + responseText);
+                
+                $.get('DiseaseAttention', function (responseText) {
+                    
+                    alert(responseText);
+                });
             }
 
         });

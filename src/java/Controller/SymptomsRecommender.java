@@ -55,10 +55,6 @@ public class SymptomsRecommender extends HttpServlet {
         }
         disease_list_String = disease_list_String.substring(0, disease_list_String.length() - 1);
 
-        //
-        System.out.println("sym_list_String :"+sym_list_String);
-        System.out.println("disease_list_String :"+disease_list_String);
-        //
         DB.Make_Connection(true);
         DB.Query = "SELECT DISTINCT symptom.nameSymptom,symptom.idSymptom\n"
                 + "FROM disease\n"
