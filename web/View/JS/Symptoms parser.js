@@ -24,7 +24,7 @@ $(document).ready(function () {
             }
             else{
                 $('#sym_list').hide();
-                $('#DiseaseName').text("You have ...."+responseText);
+                $('#DiseaseName').html("You have <br> "+responseText);
             }
 
         });
