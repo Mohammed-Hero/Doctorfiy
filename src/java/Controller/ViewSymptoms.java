@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Model.DBconnection;
+import Model.GuestDiagnose;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,6 +41,10 @@ public class ViewSymptoms extends HttpServlet {
         String bodypart = request.getParameter("bodypart");
         // to be passed to view
         String Result = "";
+        
+        GuestDiagnose newGuest = new GuestDiagnose();
+        newGuest.SelectedArea = bodypart;
+        request.getSession(true).setAttribute("Guest", newGuest);
 
         DBconnection DB = new DBconnection();
         DB.Make_Connection(true);

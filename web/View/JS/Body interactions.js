@@ -10,6 +10,8 @@ $(document).ready(function () {
         $('#sym_list').show();
         
         var search = $('#ShoulderR').attr("title");
+        $('#selected_part').attr("title",search);
+        
         $.get('ViewSymptoms',{bodypart: search}, function (responseText) {
 
             var txtArray = responseText.split("/");
@@ -27,7 +29,9 @@ $(document).ready(function () {
         $('#humanbody').attr("style", 'transform: translate3d(100%, 0px, 0px);');
         $('#sym_list').show();
         
-                var search = $('#ArmR').attr("title");
+        var search = $('#ArmR').attr("title");
+        $('#selected_part').attr("title",search);
+        
         $.get('ViewSymptoms',{bodypart: search}, function (responseText) {
 
             var txtArray = responseText.split("/");
@@ -46,7 +50,9 @@ $(document).ready(function () {
         $('#humanbody').attr("style", 'transform: translate3d(100%, 0px, 0px);');
         $('#sym_list').show();
         
-                var search = $('#ElbowR').attr("title");
+        var search = $('#ElbowR').attr("title");
+        $('#selected_part').attr("title",search);
+        
         $.get('ViewSymptoms',{bodypart: search}, function (responseText) {
 
             var txtArray = responseText.split("/");
@@ -65,7 +71,9 @@ $(document).ready(function () {
         $('#humanbody').attr("style", 'transform: translate3d(100%, 0px, 0px);');
         $('#sym_list').show();
         
-                var search = $('#ForearmR').attr("title");
+        var search = $('#ForearmR').attr("title");
+        $('#selected_part').attr("title",search);
+        
         $.get('ViewSymptoms',{bodypart: search}, function (responseText) {
 
             var txtArray = responseText.split("/");
@@ -84,7 +92,9 @@ $(document).ready(function () {
         $('#humanbody').attr("style", 'transform: translate3d(100%, 0px, 0px);');
         $('#sym_list').show();
         
-                var search = $('#WristR').attr("title");
+        var search = $('#WristR').attr("title");
+        $('#selected_part').attr("title",search);
+        
         $.get('ViewSymptoms',{bodypart: search}, function (responseText) {
 
             var txtArray = responseText.split("/");
@@ -103,7 +113,9 @@ $(document).ready(function () {
         $('#humanbody').attr("style", 'transform: translate3d(100%, 0px, 0px);');
         $('#sym_list').show();
         
-                var search = $('#PalmR').attr("title");
+        var search = $('#PalmR').attr("title");
+        $('#selected_part').attr("title",search);
+        
         $.get('ViewSymptoms',{bodypart: search}, function (responseText) {
 
             var txtArray = responseText.split("/");
@@ -122,7 +134,9 @@ $(document).ready(function () {
         $('#humanbody').attr("style", 'transform: translate3d(100%, 0px, 0px);');
         $('#sym_list').show();
         
-                var search = $('#FingersR').attr("title");
+        var search = $('#FingersR').attr("title");
+        $('#selected_part').attr("title",search);
+        
         $.get('ViewSymptoms',{bodypart: search}, function (responseText) {
 
             var txtArray = responseText.split("/");
