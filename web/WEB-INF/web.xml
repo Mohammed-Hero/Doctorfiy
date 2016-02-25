@@ -8,6 +8,10 @@
         <servlet-name>DiseaseIdentifier</servlet-name>
         <servlet-class>Controller.DiseaseIdentifier</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SymptomsRecommender</servlet-name>
+        <servlet-class>Controller.SymptomsRecommender</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewSymptoms</servlet-name>
         <url-pattern>/ViewSymptoms</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>DiseaseIdentifier</servlet-name>
         <url-pattern>/DiseaseIdentifier</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SymptomsRecommender</servlet-name>
+        <url-pattern>/SymptomsRecommender</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
